@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vulkan-object"
+version = "1.4.319"
+authors = [
+  { name="Spencer Fricke", email="spencer@lunarg.com" },
+]
+description = "An easy-to-use Python wrapper for the Vulkan API registry."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+# This flag is crucial! It tells setuptools to look at MANIFEST.in
+# and include non-Python files like vk.xml in the final package.
+include-package-data = true
