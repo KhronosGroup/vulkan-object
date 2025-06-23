@@ -12,26 +12,33 @@ This python package makes it **super easy** to get going.
 pip install vulkan-object
 ```
 
+and then it is as simple as
+
 ```python
+#!/usr/bin/env python3
 from vulkan_object import get_vulkan_object, VulkanObject
 
+# This builds the VulkanObject that is populated and ready to be used
 vk = get_vulkan_object()
 
 print(f'There are now {len([x for x in vk.extensions.values()])} extensions in Vulkan')
 
 print(f'Built with the {vk.headerVersion} headers')
+
+longest_count = 0
+for struct in vk.structs.values():
+    if len(struct.name) > longest_count:
+        longest_count = len(struct.name)
+        longest_struct = struct
+print(f'Longest Struct name is {longest_struct.name} at {longest_count} characters')
 ```
-
-## Updating this repo
-
-run `python update.py /path/to/Vulkan-Headers` and it will do everything to sync this package up with the new headers
-
-## Testing locally
-
-To test, grab the repo and go `pip install -e .` in the root directory and will simulate grabbing it from `pip`
 
 ## What is this package/repo actually?
 
 The Vulkan-Headers contain a bunch of scripts in the `Vulkan-Headers/registry/` directory that repos can use to help generate code.
 
 The main issue is the delivery mechanism for python projects. This package/repo just grabs the Vulkan-Headers scripts (**not** the C header files themselves!) and make it easier to integrate with projects.
+
+### Updating this repo
+
+run `python update.py /path/to/Vulkan-Headers` and it will do everything to sync this package up with the new headers
