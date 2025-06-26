@@ -33,6 +33,16 @@ for struct in vk.structs.values():
 print(f'Longest Struct name is {longest_struct.name} at {longest_count} characters')
 ```
 
+## Quick query from the terminal
+
+Just run the following and you can quickly use `vk` in your terminal for some quick query
+
+`python -i -c "from vulkan_object import get_vulkan_object;vk = get_vulkan_object()"`
+
+## More example
+
+[example.py](https://github.com/KhronosGroup/vulkan-object/blob/main/example.py) has more in depth ways to use this
+
 ## What is this package/repo actually?
 
 The Vulkan-Headers contain a bunch of scripts in the `Vulkan-Headers/registry/` directory that repos can use to help generate code.
