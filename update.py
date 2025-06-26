@@ -7,7 +7,9 @@
 
 import re
 import shutil
-import argparse
+import sys
+import tempfile
+import subprocess
 from pathlib import Path
 
 DEST_DIR = Path("src/vulkan_object")
@@ -136,45 +138,43 @@ def fix_relative_imports():
 
 
 def main():
-    """Main script execution."""
-    parser = argparse.ArgumentParser(
-        description="Update the vulkan_object package from a Vulkan-Headers repository checkout."
-    )
-    parser.add_argument(
-        "vulkan_headers",
-        type=str,
-        help="The path to the root of the Vulkan-Headers repository.",
-    )
-    args = parser.parse_args()
+    with tempfile.TemporaryDirectory() as temp_dir:
+        try:
+            print(f"Cloning Vulkan-Headers")
+            subprocess.run(
+                ['git', 'clone', '--depth', '1', 'https://github.com/KhronosGroup/Vulkan-Headers.git', temp_dir],
+                check=True, capture_output=True, text=True
+            )
+        except (FileNotFoundError, subprocess.CalledProcessError, OSError) as e:
+            print(f"Failed to clone:\n{e.stderr}")
+            sys.exit(-1)
 
-    # The registry directory is a subdirectory of the provided path
-    source_registry_path = Path(args.vulkan_headers) / "registry"
+        registry_path = Path(temp_dir) / "registry"
 
-    if not source_registry_path.is_dir():
-        print(f"Error: Registry directory not found at '{source_registry_path}'")
-        print("Please provide the path to the root of the Vulkan-Headers git repository.")
-        return
+        if not registry_path.is_dir():
+            print(f"Error: Registry directory not found at '{registry_path}'")
+            sys.exit(-1)
 
-    try:
-        # Get version from vk.xml BEFORE copying
-        print("Step 1: Reading version from original vk.xml...")
-        version = get_vulkan_header_version(source_registry_path)
-        print(f"Found Vulkan-Headers version: {version}")
+        try:
+            # Get version from vk.xml BEFORE copying
+            print("Step 1: Reading version from original vk.xml...")
+            version = get_vulkan_header_version(registry_path)
+            print(f"Found Vulkan-Headers version: {version}")
 
-        print("\nStep 2: Copying registry files...")
-        copy_registry_files(source_registry_path)
+            print("\nStep 2: Copying registry files...")
+            copy_registry_files(registry_path)
 
-        print("\nStep 3: Updating pyproject.toml...")
-        update_pyproject_version(version)
+            print("\nStep 3: Updating pyproject.toml...")
+            update_pyproject_version(version)
 
-        print("\nStep 4: Converting imports to relative...")
-        fix_relative_imports()
+            print("\nStep 4: Converting imports to relative...")
+            fix_relative_imports()
 
-        print("\nUpdate complete!")
+            print("\nUpdate complete!")
 
-    except (FileNotFoundError, ValueError) as e:
-        print(f"\nAn error occurred: {e}")
-
+        except (FileNotFoundError, ValueError) as e:
+            print(f"\nAn error occurred: {e}")
+            sys.exit(-1)
 
 if __name__ == "__main__":
     main()
