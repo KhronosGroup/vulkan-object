@@ -17,7 +17,7 @@ jobs:
       - name: Extract version from pyproject.toml
         id: get_version
         run: |
-          echo "version=$(grep 'version = ' pyproject.toml | cut -d '\"' -f 2)" >> "$GITHUB_OUTPUT"
+          echo "version=$(grep 'version = ' pyproject.toml | cut -d '"' -f 2)" >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -28,20 +28,6 @@ jobs:
           title: "Update to v${{ steps.get_version.outputs.version }}"
           author: GitHub <noreply@github.com>
           delete-branch: true
-
-      - name: Create and Apply Version Label
-        run: |
-          LABEL_NAME="v${{ steps.get_version.outputs.version }}"
-
-          echo "Ensuring label '$LABEL_NAME' exists..."
-          # Create the label with a specific color. If it already exists, this command will fail.
-          # We add '|| true' to ensure the workflow continues without error if the label exists.
-          gh label create "$LABEL_NAME" --color "0e8a16" --description "Release v${{ steps.get_version.outputs.version }}" || true
-
-          echo "Applying label '$LABEL_NAME' to PR #${{ steps.cpr.outputs.pull-request-number }}..."
-          gh pr edit ${{ steps.cpr.outputs.pull-request-number }} --add-label "$LABEL_NAME"
-        env:
-          GH_TOKEN: ${{ github.token }}
 
       - name: enable pr automerge
         run: |

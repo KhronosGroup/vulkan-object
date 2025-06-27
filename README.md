@@ -16,7 +16,7 @@ and then it is as simple as
 
 ```python
 #!/usr/bin/env python3
-from vulkan_object import get_vulkan_object, VulkanObject
+from vulkan_object import get_vulkan_object
 
 # This builds the VulkanObject that is populated and ready to be used
 vk = get_vulkan_object()
