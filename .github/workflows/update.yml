@@ -23,7 +23,8 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "v${{ steps.get_version.outputs.version }}"
+          # Don't make branch same name as release tag
+          branch: "release${{ steps.get_version.outputs.version }}"
           commit-message: "Update to v${{ steps.get_version.outputs.version }}"
           title: "Update to v${{ steps.get_version.outputs.version }}"
           author: GitHub <noreply@github.com>
