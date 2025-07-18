@@ -18,8 +18,8 @@ jobs:
       - name: Extract version from commit message
         id: get_version
         run: |
-          # Extracts '1.4.319' from a commit message like "Update to v1.4.319"
-          VERSION=$(echo "${{ github.event.head_commit.message }}" | cut -d 'v' -f 2 | awk '{print $1}')
+          # Extract version number using a regular expression
+          VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP 'Update to v\K[0-9.]+')
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release and Tag
