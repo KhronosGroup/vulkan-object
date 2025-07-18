@@ -19,7 +19,7 @@ jobs:
         id: get_version
         run: |
           # Extract version number using a regular expression
-          VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP 'Update to v\K[0-9.]+')
+          VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP 'Update to v\K[0-9.]+' | head -n 1)
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release and Tag
