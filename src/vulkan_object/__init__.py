@@ -59,13 +59,13 @@ def get_vulkan_object(alternative_xml: str = None, video: bool = False) -> Vulka
         SetTargetApiName('vulkan')
         SetMergedApiNames(None)
 
+        xml_path = None
+
         if alternative_xml:
             if not os.path.isfile(alternative_xml):
                 raise FileNotFoundError(f"The provided alternative XML file does not exist or is not a file: {alternative_xml}")
-            tree = ElementTree.parse(alternative_xml)
-            reg.loadElementTree(tree)
+            xml_path = alternative_xml
         else:
-            xml_path = None
             # Try the installed package resource first
             try:
                 resource_path = importlib.resources.files('vulkan_object').joinpath('vk.xml')
