@@ -1,9 +1,9 @@
 {
   "version info": {
     "schema version": 2,
-    "api version": "1.4.353",
-    "comment": "from git branch: github-main commit: 4abe0260bbd8e59930786eed645481808a3fe6f1",
-    "date": "2026-06-04 23:56:59Z"
+    "api version": "1.4.354",
+    "comment": "from git branch: github-main commit: ea5259d68356334a2928d5d6c327ccaea2f2af08",
+    "date": "2026-06-11 23:43:52Z"
   },
   "validation": {
     "VkDeviceAddress": {
@@ -16211,6 +16211,11 @@
           "page": "chapters/shaders.html"
         },
         {
+          "vuid": "VUID-VkShaderCreateInfoEXT-pNext-12454",
+          "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_SHADER_RECORD_INDEX_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, and there is a variable in the shader that matches the mapping, the <code>stage</code> <strong class=\"purple\">must</strong> be a ray tracing stage",
+          "page": "chapters/shaders.html"
+        },
+        {
           "vuid": "VUID-VkShaderCreateInfoEXT-pNext-11317",
           "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, the sum of mapped structure size and <code>shaderRecordDataOffset</code> used in the mapping <strong class=\"purple\">must</strong> not be larger than <a href=\"#limits-maxShaderGroupStride\"><code>maxShaderGroupStride</code></a>",
           "page": "chapters/shaders.html"
@@ -18375,6 +18380,11 @@
         {
           "vuid": "VUID-VkPipelineShaderStageCreateInfo-pNext-11316",
           "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, the mapped structure <strong class=\"purple\">must</strong> not be larger than <a href=\"#limits-maxPushDataSize\"><code>maxPushDataSize</code></a> minus the <code>pushDataOffset</code> used in the mapping",
+          "page": "chapters/pipelines.html"
+        },
+        {
+          "vuid": "VUID-VkPipelineShaderStageCreateInfo-pNext-12454",
+          "text": "If the <code>pNext</code> chain specifies a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_SHADER_RECORD_INDEX_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, and there is a variable in the shader that matches the mapping, the <code>stage</code> <strong class=\"purple\">must</strong> be a ray tracing stage",
           "page": "chapters/pipelines.html"
         },
         {
@@ -34317,8 +34327,18 @@
           "page": "chapters/descriptorheaps.html"
         },
         {
+          "vuid": "VUID-VkDescriptorSetAndBindingMappingEXT-source-12452",
+          "text": "If <code>source</code> is <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <code>sourceData.pushDataOffset</code> <strong class=\"purple\">must</strong> be less than or equal to <span class=\"eq\"><code>maxPushDataSize</code> - 4</span>",
+          "page": "chapters/descriptorheaps.html"
+        },
+        {
           "vuid": "VUID-VkDescriptorSetAndBindingMappingEXT-source-11247",
           "text": "If <code>source</code> is <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <code>sourceData.pushAddressOffset</code> <strong class=\"purple\">must</strong> be a multiple of 8",
+          "page": "chapters/descriptorheaps.html"
+        },
+        {
+          "vuid": "VUID-VkDescriptorSetAndBindingMappingEXT-source-12453",
+          "text": "If <code>source</code> is <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <code>sourceData.pushAddressOffset</code> <strong class=\"purple\">must</strong> be less than or equal to <span class=\"eq\"><code>maxPushDataSize</code> - 8</span>",
           "page": "chapters/descriptorheaps.html"
         },
         {
@@ -34480,17 +34500,17 @@
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourcePushIndexEXT-pEmbeddedSampler-11446",
+          "vuid": "VUID-VkDescriptorMappingSourcePushIndexEXT-pEmbeddedSampler-11445",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, its <code>borderColor</code> <strong class=\"purple\">must</strong> not be <a href=\"#VkBorderColor\">VK_BORDER_COLOR_FLOAT_CUSTOM_EXT</a> or <a href=\"#VkBorderColor\">VK_BORDER_COLOR_INT_CUSTOM_EXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourcePushIndexEXT-pEmbeddedSampler-11402",
+          "vuid": "VUID-VkDescriptorMappingSourcePushIndexEXT-pEmbeddedSampler-11415",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, and there is a <a href=\"#VkDebugUtilsObjectNameInfoEXT\">VkDebugUtilsObjectNameInfoEXT</a> structure in its <code>pNext</code> chain, its <code>objectType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkObjectType\">VK_OBJECT_TYPE_UNKNOWN</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourcePushIndexEXT-pEmbeddedSampler-12433",
+          "vuid": "VUID-VkDescriptorMappingSourcePushIndexEXT-pEmbeddedSampler-12432",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, the <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>::<code>pNext</code> chain <strong class=\"purple\">must</strong> not contain <a href=\"#VkOpaqueCaptureDescriptorDataCreateInfoEXT\">VkOpaqueCaptureDescriptorDataCreateInfoEXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
@@ -34519,17 +34539,17 @@
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexEXT-pEmbeddedSampler-11447",
+          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexEXT-pEmbeddedSampler-11445",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, its <code>borderColor</code> <strong class=\"purple\">must</strong> not be <a href=\"#VkBorderColor\">VK_BORDER_COLOR_FLOAT_CUSTOM_EXT</a> or <a href=\"#VkBorderColor\">VK_BORDER_COLOR_INT_CUSTOM_EXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexEXT-pEmbeddedSampler-11403",
+          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexEXT-pEmbeddedSampler-11415",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, and there is a <a href=\"#VkDebugUtilsObjectNameInfoEXT\">VkDebugUtilsObjectNameInfoEXT</a> structure in its <code>pNext</code> chain, its <code>objectType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkObjectType\">VK_OBJECT_TYPE_UNKNOWN</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexEXT-pEmbeddedSampler-12434",
+          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexEXT-pEmbeddedSampler-12432",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, the <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>::<code>pNext</code> chain <strong class=\"purple\">must</strong> not contain <a href=\"#VkOpaqueCaptureDescriptorDataCreateInfoEXT\">VkOpaqueCaptureDescriptorDataCreateInfoEXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
@@ -34558,17 +34578,17 @@
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexArrayEXT-pEmbeddedSampler-11448",
+          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexArrayEXT-pEmbeddedSampler-11445",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, its <code>borderColor</code> <strong class=\"purple\">must</strong> not be <a href=\"#VkBorderColor\">VK_BORDER_COLOR_FLOAT_CUSTOM_EXT</a> or <a href=\"#VkBorderColor\">VK_BORDER_COLOR_INT_CUSTOM_EXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexArrayEXT-pEmbeddedSampler-11404",
+          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexArrayEXT-pEmbeddedSampler-11415",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, and there is a <a href=\"#VkDebugUtilsObjectNameInfoEXT\">VkDebugUtilsObjectNameInfoEXT</a> structure in its <code>pNext</code> chain, its <code>objectType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkObjectType\">VK_OBJECT_TYPE_UNKNOWN</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexArrayEXT-pEmbeddedSampler-12435",
+          "vuid": "VUID-VkDescriptorMappingSourceIndirectIndexArrayEXT-pEmbeddedSampler-12432",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, the <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>::<code>pNext</code> chain <strong class=\"purple\">must</strong> not contain <a href=\"#VkOpaqueCaptureDescriptorDataCreateInfoEXT\">VkOpaqueCaptureDescriptorDataCreateInfoEXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
@@ -34630,17 +34650,17 @@
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceShaderRecordIndexEXT-pEmbeddedSampler-11449",
+          "vuid": "VUID-VkDescriptorMappingSourceShaderRecordIndexEXT-pEmbeddedSampler-11445",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, its <code>borderColor</code> <strong class=\"purple\">must</strong> not be <a href=\"#VkBorderColor\">VK_BORDER_COLOR_FLOAT_CUSTOM_EXT</a> or <a href=\"#VkBorderColor\">VK_BORDER_COLOR_INT_CUSTOM_EXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceShaderRecordIndexEXT-pEmbeddedSampler-11405",
+          "vuid": "VUID-VkDescriptorMappingSourceShaderRecordIndexEXT-pEmbeddedSampler-11415",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, and there is a <a href=\"#VkDebugUtilsObjectNameInfoEXT\">VkDebugUtilsObjectNameInfoEXT</a> structure in its <code>pNext</code> chain, its <code>objectType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkObjectType\">VK_OBJECT_TYPE_UNKNOWN</a>",
           "page": "chapters/descriptorheaps.html"
         },
         {
-          "vuid": "VUID-VkDescriptorMappingSourceShaderRecordIndexEXT-pEmbeddedSampler-12436",
+          "vuid": "VUID-VkDescriptorMappingSourceShaderRecordIndexEXT-pEmbeddedSampler-12432",
           "text": "If <code>pEmbeddedSampler</code> is a valid pointer to a <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>, the <a href=\"#VkSamplerCreateInfo\">VkSamplerCreateInfo</a>::<code>pNext</code> chain <strong class=\"purple\">must</strong> not contain <a href=\"#VkOpaqueCaptureDescriptorDataCreateInfoEXT\">VkOpaqueCaptureDescriptorDataCreateInfoEXT</a>",
           "page": "chapters/descriptorheaps.html"
         },
@@ -54002,16 +54022,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDraw-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDraw-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDraw-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -55923,16 +55933,6 @@
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexed-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexed-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -57862,16 +57862,6 @@
         {
           "vuid": "VUID-vkCmdDrawMultiEXT-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMultiEXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMultiEXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -59806,16 +59796,6 @@
         {
           "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMultiIndexedEXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -61862,16 +61842,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirect2KHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirect2KHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndirect2KHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -63788,16 +63758,6 @@
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirect-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirect-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -65913,16 +65873,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirectCount2KHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectCount2KHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndirectCount2KHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -67844,16 +67794,6 @@
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectCount-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectCount-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -69821,16 +69761,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect2KHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect2KHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndexedIndirect2KHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -71757,16 +71687,6 @@
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -73748,16 +73668,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount2KHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount2KHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount2KHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -75689,16 +75599,6 @@
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -77676,16 +77576,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirectByteCount2EXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectByteCount2EXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndirectByteCount2EXT-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -79627,16 +79517,6 @@
         {
           "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectByteCountEXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -81844,16 +81724,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawMeshTasksNV-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksNV-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawMeshTasksNV-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -83640,16 +83510,6 @@
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectNV-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -85498,16 +85358,6 @@
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountNV-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -87370,16 +87220,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawMeshTasksEXT-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -89204,16 +89044,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirect2EXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirect2EXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirect2EXT-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -91000,16 +90830,6 @@
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectEXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -92896,16 +92716,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCount2EXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCount2EXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCount2EXT-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -94697,16 +94507,6 @@
         {
           "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawMeshTasksIndirectCountEXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -96569,16 +96369,6 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawClusterHUAWEI-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/drawing.html"
@@ -98380,16 +98170,6 @@
         {
           "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawClusterIndirectHUAWEI-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/drawing.html"
         },
         {
@@ -105526,16 +105306,6 @@
           "page": "chapters/dispatch.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatch-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatch-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatch-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/dispatch.html"
@@ -106224,16 +105994,6 @@
           "page": "chapters/dispatch.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatchIndirect2KHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchIndirect2KHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatchIndirect2KHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/dispatch.html"
@@ -106800,16 +106560,6 @@
         {
           "vuid": "VUID-vkCmdDispatchIndirect-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchIndirect-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchIndirect-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/dispatch.html"
         },
         {
@@ -107446,16 +107196,6 @@
           "page": "chapters/dispatch.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatchBase-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchBase-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatchBase-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/dispatch.html"
@@ -108085,16 +107825,6 @@
           "page": "chapters/dispatch.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatchTileQCOM-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchTileQCOM-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatchTileQCOM-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/dispatch.html"
@@ -108720,16 +108450,6 @@
         {
           "vuid": "VUID-vkCmdSubpassShadingHUAWEI-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdSubpassShadingHUAWEI-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdSubpassShadingHUAWEI-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/dispatch.html"
         },
         {
@@ -111141,16 +110861,6 @@
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
-          "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/device_generated_commands/generatedcommands.html"
-        },
-        {
-          "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/device_generated_commands/generatedcommands.html"
-        },
-        {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsNV-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/device_generated_commands/generatedcommands.html"
@@ -113303,16 +113013,6 @@
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
-          "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/device_generated_commands/generatedcommands.html"
-        },
-        {
-          "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/device_generated_commands/generatedcommands.html"
-        },
-        {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/device_generated_commands/generatedcommands.html"
@@ -114600,11 +114300,6 @@
         {
           "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-isPreprocessed-11052",
           "text": "If <code>isPreprocessed</code> is <a href=\"#VK_TRUE\">VK_TRUE</a> and the <code>indirectCommandsLayout</code> member of <code>pGeneratedCommandsInfo</code> contains a ray tracing token, then the ray tracing state bound on <code>commandBuffer</code> <strong class=\"purple\">must</strong> match identically with the ray tracing state bound on the <code>stateCommandBuffer</code> passed to <a href=\"#vkCmdPreprocessGeneratedCommandsEXT\">vkCmdPreprocessGeneratedCommandsEXT</a>",
-          "page": "chapters/device_generated_commands/generatedcommands.html"
-        },
-        {
-          "vuid": "VUID-vkCmdExecuteGeneratedCommandsEXT-isPreprocessed-11150",
-          "text": "If <code>isPreprocessed</code> is <a href=\"#VK_TRUE\">VK_TRUE</a> and the <code>indirectCommandsLayout</code> member of <code>pGeneratedCommandsInfo</code> contains a ray tracing token, the queue family index <code>commandBuffer</code> was allocated from <strong class=\"purple\">must</strong> be the same queue family index used to allocate the <code>stateCommandBuffer</code> passed to <a href=\"#vkCmdPreprocessGeneratedCommandsEXT\">vkCmdPreprocessGeneratedCommandsEXT</a>",
           "page": "chapters/device_generated_commands/generatedcommands.html"
         },
         {
@@ -126350,16 +126045,6 @@
           "page": "chapters/raytracing.html"
         },
         {
-          "vuid": "VUID-vkCmdTraceRaysKHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/raytracing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdTraceRaysKHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/raytracing.html"
-        },
-        {
           "vuid": "VUID-vkCmdTraceRaysKHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/raytracing.html"
@@ -127178,16 +126863,6 @@
           "page": "chapters/raytracing.html"
         },
         {
-          "vuid": "VUID-vkCmdTraceRaysIndirectKHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/raytracing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdTraceRaysIndirectKHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/raytracing.html"
-        },
-        {
           "vuid": "VUID-vkCmdTraceRaysIndirectKHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/raytracing.html"
@@ -127951,16 +127626,6 @@
           "page": "chapters/raytracing.html"
         },
         {
-          "vuid": "VUID-vkCmdTraceRaysIndirect2KHR-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/raytracing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdTraceRaysIndirect2KHR-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/raytracing.html"
-        },
-        {
           "vuid": "VUID-vkCmdTraceRaysIndirect2KHR-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/raytracing.html"
@@ -128716,16 +128381,6 @@
         {
           "vuid": "VUID-vkCmdTraceRaysNV-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/raytracing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdTraceRaysNV-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/raytracing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdTraceRaysNV-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/raytracing.html"
         },
         {
@@ -135476,16 +135131,6 @@
           "page": "chapters/executiongraphs.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatchGraphAMDX-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/executiongraphs.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchGraphAMDX-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
-          "page": "chapters/executiongraphs.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatchGraphAMDX-None-11437",
           "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the buffer from which the address in push data was queried <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a> usage flag set",
           "page": "chapters/executiongraphs.html"
@@ -136122,16 +135767,6 @@
         {
           "vuid": "VUID-vkCmdDispatchGraphIndirectAMDX-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/executiongraphs.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchGraphIndirectAMDX-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/executiongraphs.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchGraphIndirectAMDX-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/executiongraphs.html"
         },
         {
@@ -136791,16 +136426,6 @@
         {
           "vuid": "VUID-vkCmdDispatchGraphIndirectCountAMDX-None-11398",
           "text": "If a <a href=\"#shaders-binding\">bound shader</a> was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_PUSH_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_DATA_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_SHADER_RECORD_ADDRESS_EXT</a>, <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_RESOURCE_HEAP_DATA_EXT</a>, or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the access <strong class=\"purple\">must</strong> not be <a href=\"#shaders-execution-memory-access-bounds\">out of bounds</a>",
-          "page": "chapters/executiongraphs.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchGraphIndirectCountAMDX-None-12450",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_INDIRECT_ADDRESS_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the resource address <strong class=\"purple\">must</strong> be aligned to 8 bytes",
-          "page": "chapters/executiongraphs.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchGraphIndirectCountAMDX-None-12451",
-          "text": "If a pipeline is bound to the pipeline bind point used by this command, or shader is bound to a shader stage used by this command, and it was created with a <a href=\"#descriptorheaps-bindings\">descriptor mapping</a> using <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_ARRAY_EXT</a> or <a href=\"#VkDescriptorMappingSourceEXT\">VK_DESCRIPTOR_MAPPING_SOURCE_HEAP_WITH_INDIRECT_INDEX_EXT</a>, and a shader accesses a resource using that mapping, the indirect address used to load the indirect index <strong class=\"purple\">must</strong> be aligned to 4 bytes",
           "page": "chapters/executiongraphs.html"
         },
         {
@@ -144907,7 +144532,7 @@
         },
         {
           "vuid": "VUID-StandaloneSpirv-UniformConstant-06677",
-          "text": "Any variable in the <code>UniformConstant</code>, <code>StorageBuffer</code>, or <code>Uniform</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> be decorated with <code>DescriptorSet</code>, <code>Binding</code>, or <code>BuiltIn</code> with <code>SamplerHeapEXT</code> or <code>ResourceHeapEXT</code>",
+          "text": "Any variable in the <code>UniformConstant</code>, <code>StorageBuffer</code>, or <code>Uniform</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> be decorated with either <code>DescriptorSet</code> and <code>Binding</code>, or <code>BuiltIn</code> with <code>SamplerHeapEXT</code> or <code>ResourceHeapEXT</code>",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -145028,6 +144653,11 @@
         {
           "vuid": "VUID-StandaloneSpirv-StorageTexelBufferArrayDynamicIndexing-10133",
           "text": "If the <code>StorageTexelBufferArrayDynamicIndexing</code> capability is not declared, and an instruction accesses memory through a storage texel buffer, the storage texel buffer through which that memory is accessed <strong class=\"purple\">must</strong> be determined by <a href=\"#glossary-constant-integral-expression\">constant integral expressions</a>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-MaximallyReconvergesKHR-09565",
+          "text": "The <code>MaximallyReconvergesKHR</code> <code>Execution</code> <code>Mode</code> <strong class=\"purple\">must</strong> not be applied to an entry point if an <em>invocation repack instruction</em> is statically used",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -146575,11 +146205,6 @@
           "page": "appendices/spirvenv.html"
         },
         {
-          "vuid": "VUID-RuntimeSpirv-MaximallyReconvergesKHR-09565",
-          "text": "The execution mode <code>MaximallyReconvergesKHR</code> <strong class=\"purple\">must</strong> not be applied to an entry point unless the entry point does not execute any <a href=\"#ray-tracing-repack\"><em>invocation repack instructions</em></a>",
-          "page": "appendices/spirvenv.html"
-        },
-        {
           "vuid": "VUID-RuntimeSpirv-shaderSubgroupRotateClustered-09566",
           "text": "If <a href=\"#features-shaderSubgroupRotateClustered\"><code>shaderSubgroupRotateClustered</code></a> is <a href=\"#VK_FALSE\">VK_FALSE</a>, then the <code>ClusterSize</code> operand to <code>OpGroupNonUniformRotateKHR</code> <strong class=\"purple\">must</strong> not be used",
           "page": "appendices/spirvenv.html"
@@ -146917,6 +146542,11 @@
         {
           "vuid": "VUID-RuntimeSpirv-Image-11382",
           "text": "If the <code>Image</code> operand of <code>OpImageTexelPointer</code> or <code>OpUntypedImageTexelPointerEXT</code> is derived from a variable decorated with <code>ResourceHeapEXT</code>, the operands of that <code>OpTypeImage</code> <strong class=\"purple\">must</strong> correspond to a descriptor with operands that match as described by <a href=\"#interfaces-resources-heap-image-operand-correspondence\">Heap Image Operand Correspondence</a> and <a href=\"#interfaces-resources-heap-image-dim-correspondence\">Heap Image View Type Dimensionality</a>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-RuntimeSpirv-maxPushDataSize-12455",
+          "text": "The size of the <code>PushConstant</code> <code>Storage</code> <code>Class</code> block <strong class=\"purple\">must</strong> be less than or equal to <a href=\"#limits-maxPushDataSize\"><code>maxPushDataSize</code></a>",
           "page": "appendices/spirvenv.html"
         }
       ]
