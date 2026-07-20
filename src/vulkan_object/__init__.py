@@ -4,20 +4,31 @@
 
 import functools
 import importlib.resources
+import inspect
 import tempfile
 import os
 from xml.etree import ElementTree
-from typing import Any
 
 # Use relative imports to access sibling modules
 from .reg import Registry
 from .base_generator import BaseGenerator, BaseGeneratorOptions, SetOutputDirectory, SetOutputFileName, SetTargetApiName, SetMergedApiNames
-from .vulkan_object import VulkanObject
 
-# Define the public API for your package
+# Import the submodule as 'vo_module' to avoid naming conflicts with the VulkanObject class
+from . import vulkan_object as vo_module
+from .vulkan_object import VulkanObject, CapabilityAlias
+
+# Dynamically collect all classes and TypeAliases defined inside vulkan_object.py
+_DYNAMIC_EXPORTS = []
+for name, obj in inspect.getmembers(vo_module):
+    # Ensure it was actually defined in vulkan_object.py (not imported from enum/dataclasses/etc.)
+    if getattr(obj, "__module__", None) == vo_module.__name__:
+        globals()[name] = obj
+        _DYNAMIC_EXPORTS.append(name)
+
 __all__ = [
     'get_vulkan_object',
-    'VulkanObject'  # Exposing the class is good for type-hinting
+    'CapabilityAlias', # is an alias, needs a special export
+    *sorted(_DYNAMIC_EXPORTS)
 ]
 
 # Create the simplified, cached public function
