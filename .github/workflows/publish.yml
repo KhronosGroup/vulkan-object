@@ -11,6 +11,7 @@ on:
 jobs:
   build-and-publish:
     name: Build and publish Python distributions to PyPI
+    if: ${{ !startsWith(github.event.release.tag_name, 'vulkan-sdk') }}
     runs-on: ubuntu-latest
     permissions:
       id-token: write  # Important for trusted publishing
