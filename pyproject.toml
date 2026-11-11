@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vulkan-object"
-version = "1.4.367"
+version = "1.4.368"
 dependencies = [
     "pyparsing",
 ]
